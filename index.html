@@ -79,24 +79,39 @@
       }
 
       .jumbotron a {
-        background-color: rgb(0, 139, 109);
+        background-color: rgba(0, 139, 109, 0.329);
         color: white;
       }
 
       .blog-post:last-of-type {
-        background-color: turquoise;
+        background-color: rgba(64, 224, 208, 0.247);
       }
 
       .blog-post:first-of-type {
-        background-color: rgb(224, 64, 125);
+        background-color: rgba(224, 64, 125, 0.281);
       }
 
       nav a:nth-of-type(2n) {
         background-color: yellow;
       }
 
-      div ol > li {
-        background-color: rgb(185, 213, 129);
+      /* EX7) Write a selector to target all the li into the first ordered-list in the sidebar ( Archives ) */
+      body > main > div > aside > div:nth-child(2) > ol {
+        background-color: rgba(55, 129, 55, 0.274);
+      }
+
+      /* EX8) Write a selector to target the second post author */
+      div + .blog-post {
+        background-color: rgba(128, 0, 128, 0.329);
+      }
+      /* EX9) Write a selector to target the "back to top" link     #### EXTRA Try doing it without targeting the footer element directly */
+      p a[href="google.com"] {
+        background-color: rgba(255, 0, 0, 0.452) !important;
+      }
+
+      /* EX10) Write a selector to target the footer */
+      footer {
+        background-color: rgba(177, 205, 50, 0.528);
       }
     </style>
     <link
@@ -465,24 +480,44 @@
         <a href="https://twitter.com/mdo">@mdo</a>.
       </p>
       <p>
-        <a href="#">Back to top</a>
+        <a href="google.com">Back to top</a>
       </p>
     </footer>
 
     <script>
       /*
-        JS Exercises
-        EX11) Write a function to add a new link into the navbar
-        EX12) Write a function to change the color of the main title
-        EX13) Write a function to change the background of the jumbotron
-        EX14) Write a function to remove all the links under "Elsewhere"
-        EX15) Write a function to change the column size for post headings
-        EX16) Write a function to remove the "Search" magnifying glass icon
-        EX17) Write a function to trim just the first 50 characters in the first paragraph for each blog post
-        EX18) Write a function and attach it to the "Newer" button, to add new Blog Post (just div and title)
-        EX19) Write a function and attach it to the "Older" button, to remove the last Blog Post
-        EX20) Write an alert with the name of the author every time the user hover with the mouse over an author name
-    */
+          JS Exercises
+          EX11) Write a function to add a new link into the navbar
+
+
+
+
+          EX12) Write a function to change the color of the main title
+          EX13) Write a function to change the background of the jumbotron
+          EX14) Write a function to remove all the links under "Elsewhere"
+          EX15) Write a function to change the column size for post headings
+          EX16) Write a function to remove the "Search" magnifying glass icon
+          EX17) Write a function to trim just the first 50 characters in the first paragraph for each blog post
+          EX18) Write a function and attach it to the "Newer" button, to add new Blog Post (just div and title)
+          EX19) Write a function and attach it to the "Older" button, to remove the last Blog Post
+          EX20) Write an alert with the name of the author every time the user hover with the mouse over an author name
+      */
+      const addLinkNav = function () {
+        let newLink = document.createElement("a"); //creating
+        newLink.innerText = "New Link"; //filling up
+        newLink.className = "p-2 text-muted"; //adding the styling classes to the new link
+
+        //grabing the space on the page
+        let myNav = document.getElementsByTagName("nav")[0]; //this returns an array, but I tagged only the [0] element
+        myNav.appendChild(newLink); //appending the child = pasting the link there
+      };
+      addLinkNav();
+
+      const changeJumb = function () {
+        let myJumbo = document.getElementsByClassName("jumbotron")[0]; //will return 1st element of an array
+        myJumbo.className = "jumbotron p-4 p-md-5 text-white rounded bg-light"; //changed the class/background to light
+      };
+      changeJumb();
     </script>
   </body>
 </html>
